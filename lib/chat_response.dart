@@ -3,11 +3,12 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class ChatResponse {
-  static const String baseUrl = 'http://192.168.162.247:5000';
+  static const String baseUrl =
+      'https://3684caf4b149-8870372606232380035.ngrok-free.app';
 
   // Regular chat - returns complete response at once
   static Future<String> getChatResponseRegular(String content,
-      {String model = 'llama3.2'}) async {
+      {String model = 'phi3:latest'}) async {
     try {
       const url = '$baseUrl/generate';
       final headers = {

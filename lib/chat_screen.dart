@@ -266,26 +266,30 @@ class _ChatScreenState extends State<ChatScreen> {
                       fontWeight: FontWeight.w500,
                     ),
               ),
-              DropdownButton<String>(
-                value: _selectedModel,
-                onChanged: (String? newValue) {
-                  if (newValue != null) {
-                    setState(() {
-                      _selectedModel = newValue;
-                    });
-                  }
-                },
-                underline: const SizedBox(),
-                items: _availableModels
-                    .map<DropdownMenuItem<String>>((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(
-                      value,
-                      style: Theme.of(context).textTheme.bodySmall,
-                    ),
-                  );
-                }).toList(),
+              Expanded(
+                child: DropdownButton<String>(
+                  value: _selectedModel,
+                  onChanged: (String? newValue) {
+                    if (newValue != null) {
+                      setState(() {
+                        _selectedModel = newValue;
+                      });
+                    }
+                  },
+                  underline: const SizedBox(),
+                  isExpanded: true,
+                  items: _availableModels
+                      .map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(
+                        value,
+                        style: Theme.of(context).textTheme.bodySmall,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    );
+                  }).toList(),
+                ),
               ),
             ],
           ),
